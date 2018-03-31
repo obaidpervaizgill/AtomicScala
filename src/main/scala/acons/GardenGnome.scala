@@ -6,7 +6,6 @@ package acons
 class GardenGnome(val height:Double,
                   val weight:Double,
                   val happy:Boolean) {
-  
   def magic(level:Int):String = {
     "Poof! " + level
   }
