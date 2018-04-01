@@ -1,22 +1,26 @@
-
-
-class AcceptAnything (x:Any){
-  case class Person(name:String)
-  def result():String = {
-    x match {
-      case s:String => "A String: " + s
-      case i:Int if(i < 20) => s"An Int Less than 20: $i"
-      case i:Int => s"Some Other Int: $i"
-      case p:Person => s"A person ${p.name}"
-      case _ => "I don't know what that is!"
-    }
-  }
+class GreatApe {
+  def call = "Hoo!"
+  var energy = 3
+  def eat() = { energy += 10; energy }
+  def climb(x:Int) = energy -= x
 }
-case class Person(name:String)
 
+val kk = new GreatApe
 
-val test = new AcceptAnything
-val me = Person("Sunny")
-test.result(me)
+kk.energy
+kk.eat()
+kk.climb(3)
+kk.energy
+trait Name {
+  def name = "Monkey"
+}
 
+class Bonobo extends GreatApe with Name{
+  override def call = "Eep!"
+  energy = 5
+  override def eat() = super.eat() * 2
+}
 
+val b = new Bonobo
+b.eat()
+b.name
