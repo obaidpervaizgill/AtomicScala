@@ -6,7 +6,7 @@
 
 **By Obaid Pervaiz Gill**
 
-**This notebook covers my aim at learning Scala and software engineering principles from the best developers**
+**This code base covers my aim at learning Scala and software engineering principles from the best developers**
 
 **In this repository, I try setting up a code repository using examples from Atomic Scala book. I do the following steps;**
 
