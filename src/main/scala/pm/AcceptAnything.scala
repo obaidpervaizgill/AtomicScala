@@ -1,5 +1,8 @@
+package pm
 
-
+/**
+  * Created by z3470247 on 1/04/2018.
+  */
 class AcceptAnything (x:Any){
   case class Person(name:String)
   def result():String = {
@@ -12,11 +15,3 @@ class AcceptAnything (x:Any){
     }
   }
 }
-case class Person(name:String)
-
-
-val test = new AcceptAnything
-val me = Person("Sunny")
-test.result(me)
-
-
