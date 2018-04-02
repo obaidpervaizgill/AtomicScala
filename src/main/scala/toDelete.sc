@@ -1,25 +1,33 @@
-// SodaFountain.scala
-package sodafountain
-object Quantity extends Enumeration {
-  type Quantity = Value
-  val None, Small, Regular, Extra, Super = Value
-}
-//import Quantity._
+object Color extends Enumeration {
+   type Color = Value
+   val red, blue, yellow, purple,
+   green, orange, brown = Value
+   }
 
-object Holder extends Enumeration {
-  type Holder = Value
-  val Bowl, Cup, Cone, WaffleCone = Value
-}
-//import Holder._
+import Color._
+object colorblend {
 
-trait Flavor
+   def blend(a:Color, b:Color) =
+     (a, b) match {
+     case _ if a == b => a
+       case (`red`, `blue`) |
+              (`blue`, `red`) => purple
+    case (`red`, `yellow`) |
+             (`yellow`, `red`) => orange
+    case (`blue`, `yellow`) |
+             (`yellow`, `blue`) => green
+     case (`brown`, _) |
+             (_, `brown`) => brown
+    case _ => // Interesting, not accurate:
+       Color((a.id + b.id) % Color.maxId)
+       }
+   }
 
-object Syrup extends Enumeration {
-  case class _Val() extends Val with Flavor
+val out = for (a <- Color.values; b <- Color.values; c = colorblend.blend(a,b)) yield (c)
 
-  type Syrup = _Val
-  val Chocolate, HotFudge,Butterscotch, Caramel = _Val()
-}
+
+out.foreach(println)
+
 
 
 
