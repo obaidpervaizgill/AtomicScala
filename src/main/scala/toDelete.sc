@@ -1,26 +1,25 @@
-class GreatApe {
-  def call = "Hoo!"
-  var energy = 3
-  def eat() = { energy += 10; energy }
-  def climb(x:Int) = energy -= x
+// SodaFountain.scala
+package sodafountain
+object Quantity extends Enumeration {
+  type Quantity = Value
+  val None, Small, Regular, Extra, Super = Value
+}
+//import Quantity._
+
+object Holder extends Enumeration {
+  type Holder = Value
+  val Bowl, Cup, Cone, WaffleCone = Value
+}
+//import Holder._
+
+trait Flavor
+
+object Syrup extends Enumeration {
+  case class _Val() extends Val with Flavor
+
+  type Syrup = _Val
+  val Chocolate, HotFudge,Butterscotch, Caramel = _Val()
 }
 
-val kk = new GreatApe
 
-kk.energy
-kk.eat()
-kk.climb(3)
-kk.energy
-trait Name {
-  def name = "Monkey"
-}
 
-class Bonobo extends GreatApe with Name{
-  override def call = "Eep!"
-  energy = 5
-  override def eat() = super.eat() * 2
-}
-
-val b = new Bonobo
-b.eat()
-b.name
